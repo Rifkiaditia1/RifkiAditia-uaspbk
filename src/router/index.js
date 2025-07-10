@@ -20,7 +20,7 @@ const routes = [
       { path: 'khs', component: KHSPage },
       { path: 'jadwal', component: JadwalPage },
       { path: 'logout', component: Logout },
-      { path: '', redirect: '/dashboard' }, // Redirect default child route
+      { path: '', redirect: '/login' }, 
     ],
   },
 ]
