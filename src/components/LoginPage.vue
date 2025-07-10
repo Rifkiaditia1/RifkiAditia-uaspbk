@@ -9,7 +9,18 @@
         </div>
         <div class="mb-6">
           <label class="block text-gray-700 font-semibold mb-1">Password</label>
-          <input v-model="password" type="password" placeholder="Masukkan Password" class="input-field" required />
+          <div class="password-wrapper">
+            <input
+              :type="showPassword ? 'text' : 'password'"
+              v-model="password"
+              placeholder="Masukkan Password"
+              class="input-field"
+              required
+            />
+            <span class="material-icons toggle-password" @click="togglePassword">
+              {{ showPassword ? 'visibility' : 'visibility_off' }}
+            </span>
+          </div>
         </div>
         <button type="submit" class="login-btn">Login</button>
       </form>
@@ -24,8 +35,13 @@ import { useAuthStore } from '../stores/authStore'
 
 const nim = ref('')
 const password = ref('')
+const showPassword = ref(false)
 const router = useRouter()
 const authStore = useAuthStore()
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value
+}
 
 const handleLogin = () => {
   const success = authStore.login(nim.value, password.value)
@@ -76,6 +92,18 @@ const handleLogin = () => {
 .input-field:focus {
   border: 2px solid #4f8cff;
   box-shadow: 0 0 0 2px #a6c1ee55;
+}
+.password-wrapper {
+  position: relative;
+}
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #4f8cff;
+  font-size: 1.5rem;
 }
 .login-btn {
   width: 100%;
