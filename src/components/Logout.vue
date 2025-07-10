@@ -33,13 +33,10 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
 const handleLogout = () => {
-  alert('Logout berhasil. Anda akan diarahkan ke halaman login.')
-  router.push('/login')
+  alert('Logout berhasil. Anda akan diarahkan ke halaman login.');
+  // Arahkan ke halaman login atau proses logout sesuai kebutuhan
+  window.location.href = '/login';
 }
 </script>
 
@@ -55,7 +52,7 @@ const handleLogout = () => {
   color: #1e3a8a;
 }
 .top-toolbar {
-  background-color: #4b5563;
+  background-color: #4b5563; 
   color: white;
 }
 .line {

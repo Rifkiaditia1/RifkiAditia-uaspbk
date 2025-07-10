@@ -18,11 +18,9 @@ const routes = [
       { path: 'khs', component: KHSPage },
       { path: 'jadwal', component: JadwalPage },
       { path: 'logout', component: Logout },
+      { path: '', redirect: '/login' }, 
     ],
   },
-  // tambahkan default redirect jika path tidak dikenal
-  { path: '/', redirect: '/login' },
-  { path: '/:pathMatch(.*)*', redirect: '/login' },
 ]
 
 const router = createRouter({

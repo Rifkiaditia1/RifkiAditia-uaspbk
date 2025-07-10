@@ -17,7 +17,7 @@
               class="input-field"
               required
             />
-            <span class="material-icons toggle-password" @click="togglePassword">
+            <span class="material-icons eye-icon" @click="togglePassword">
               {{ showPassword ? 'visibility' : 'visibility_off' }}
             </span>
           </div>
@@ -96,14 +96,14 @@ const handleLogin = () => {
 .password-wrapper {
   position: relative;
 }
-.toggle-password {
+.eye-icon {
   position: absolute;
   top: 50%;
-  right: 12px;
+  right: 14px;
   transform: translateY(-50%);
   cursor: pointer;
+  font-size: 24px;
   color: #4f8cff;
-  font-size: 1.5rem;
 }
 .login-btn {
   width: 100%;
@@ -123,7 +123,13 @@ const handleLogin = () => {
   transform: translateY(-2px) scale(1.02);
 }
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
