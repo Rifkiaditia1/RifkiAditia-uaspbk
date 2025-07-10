@@ -33,10 +33,15 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
 const handleLogout = () => {
-  alert('Logout berhasil. Anda akan diarahkan ke halaman login.');
-  // Arahkan ke halaman login atau proses logout sesuai kebutuhan
-  window.location.href = '/login';
+  authStore.logout()
+  router.push('/login')
 }
 </script>
 
